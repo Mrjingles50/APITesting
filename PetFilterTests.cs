@@ -12,6 +12,25 @@ namespace APITesting
 {
     public class PetFilterTests
     {
+        [Fact]
+        public async Task TestPetFilterDisntictValues()
+        {
+            var client = new Client().client;
+            var response = await client.GetAsync("https://api20211105132600.azurewebsites.net/api/PetFilter/DistinctValues");
+
+            response.EnsureSuccessStatusCode();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async Task TestPetFilterDisntictFilterCriteria()
+        {
+            var client = new Client().client;
+            var response = await client.GetAsync("https://api20211105132600.azurewebsites.net/api/PetFilter/DistinctFilterCriteria");
+
+            response.EnsureSuccessStatusCode();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
 
         [Fact]
         public async Task TestPetFilter()

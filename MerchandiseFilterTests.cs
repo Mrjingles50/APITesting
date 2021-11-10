@@ -35,7 +35,7 @@ namespace APITesting
 
             IEnumerable<string> list = await response.Content.ReadAsAsync<IEnumerable<string>>();
 
-            list.Count().Should().Be(8);
+            list.Count().Should().BeInRange(8, 9);
         }
 
         [Fact]
